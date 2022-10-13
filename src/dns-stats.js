@@ -3,7 +3,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 /**
  * Given an array of domains, return the object with the appearances of the DNS.
  *
- * @param {Array} domains
+`  * @param {Array} domains
  * @return {Object}
  *
  * @example
