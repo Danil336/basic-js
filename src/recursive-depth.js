@@ -13,16 +13,19 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class DepthCalculator {
-  calculateDepth(arr) {
-  //   function glubina(arr){
-  //     if(arr.filter(i => i.constructor.name === "Array").length != 0){
-  //        return 1 + glubina([].concat(...arr.filter(i => i.constructor.name === "Array")));
-  //     } else {
-  //        return 0;
-  //     }
-  //  }
-  //  glubina(arr)
-  }
+  constructor(array) {
+    this.array = array;
+    this.depth = 1;
+}
+calculateDepth(array = this.array, depth = 1) {
+    if (depth > this.depth) this.depth = depth;
+    for (let e of array) {
+        if (Array.isArray(e)) {
+            this.calculateDepth(e, depth + 1);
+        }
+    }
+    return this.depth;
+}
 }
 
 module.exports = {
